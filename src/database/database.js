@@ -12,6 +12,12 @@ const sequelize = new Sequelize(database, user, password, {
   host: host,
   dialect: "postgres",
   port: port,
+  dialectOptions: {
+    ssl: {
+      require: true, // Requerir SSL
+      rejectUnauthorized: false // Opción adicional para deshabilitar la verificación del certificado
+    }
+  },
   pool: {
     max: 5,
     min: 0,
